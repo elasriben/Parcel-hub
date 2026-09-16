@@ -1,0 +1,170 @@
+{
+  "app_name": "RELAY by ORALINK",
+  "personality": "5 Brutalist Mobile",
+  "personality_one_liner": "A stark, high-contrast, industrial operational tool designed for speed, scan-first workflows, and zero-friction logistics management.",
+  "color": {
+    "surface": "#FFFFFF",
+    "onSurface": "#000000",
+    "surfaceSecondary": "#F4F4F4",
+    "onSurfaceSecondary": "#000000",
+    "surfaceTertiary": "#E5E5E5",
+    "onSurfaceTertiary": "#000000",
+    "surfaceInverse": "#000000",
+    "onSurfaceInverse": "#FFFFFF",
+    "brand": "#FF3B00",
+    "brandPrimary": "#FF3B00",
+    "onBrandPrimary": "#000000",
+    "brandSecondary": "#000000",
+    "onBrandSecondary": "#FFFFFF",
+    "brandTertiary": "#FFE4DB",
+    "onBrandTertiary": "#FF3B00",
+    "success": "#008A27",
+    "onSuccess": "#FFFFFF",
+    "warning": "#FFC000",
+    "onWarning": "#000000",
+    "error": "#D90000",
+    "onError": "#FFFFFF",
+    "info": "#0000FF",
+    "onInfo": "#FFFFFF",
+    "border": "#000000",
+    "borderStrong": "#000000",
+    "divider": "#000000",
+    "muted": "#666666",
+    "onBrand": "#000000"
+  },
+  "typography": {
+    "displayFontFamily": "SpaceGrotesk_500Medium",
+    "textFontFamily": "IBMPlexMono_500Medium",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Intentional whitespace imbalance, exposed structure, hard alignment. Use sm/md padding mostly, but large margins around key metrics.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 0,
+    "md": 0,
+    "lg": 0,
+    "pill": 0
+  },
+  "shadow_tier": "0",
+  "navigation": "stack_only",
+  "icon_set": "Feather",
+  "glassmorphism": {
+    "enabled": "false",
+    "do's": [],
+    "dont's": ["Do not use blur or glassmorphism. This is a Brutalist app. Use solid colors and hard borders."]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-blur",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Login",
+      "purpose": "Staff authentication with large, accessible touch targets.",
+      "states": {
+        "loading": "Centered hard black spinner.",
+        "empty": "N/A",
+        "error": "Red error box with sharp borders and 'RÉESSAYER' button."
+      },
+      "layout": "Massive ORALINK logo (text or simple geometric SVG). Email and password fields using mono font, hard 2pt black borders, floating labels inside sharp boxes. Sticky bottom 'CONNEXION' button stretching edge-to-edge with no radius, orange background, black text."
+    },
+    {
+      "name": "HomeDashboard",
+      "purpose": "Glanceable relay point status and quick operational actions.",
+      "states": {
+        "loading": "Skeleton of grid with sharp black borders.",
+        "empty": "N/A",
+        "error": "Full-screen stark error state."
+      },
+      "layout": "Top section: Edge-to-edge status card (Relais Actif) with a brutalist capacity gauge (e.g. 'COLIS: 45/50' in massive display font). Middle section: 2x2 grid of buttons (Recevoir, Remettre, Retour, Incident) with 2pt black borders, mono font labels, and stark iconography. Bottom: Sticky edge-to-edge primary CTA 'SCANNER UN COLIS'."
+    },
+    {
+      "name": "Scanner",
+      "purpose": "Full-screen barcode/QR scanner for rapid parcel entry.",
+      "states": {
+        "loading": "Camera initializing text.",
+        "empty": "N/A",
+        "error": "Camera permission denied message in stark layout."
+      },
+      "layout": "Full-screen camera view overlay. A stark, high-contrast crosshair/reticle in the center. A black solid bottom sheet containing a manual entry field ('SAISIE MANUELLE') for fallback, with an orange submit button."
+    },
+    {
+      "name": "ParcelDetail",
+      "purpose": "View specific parcel information and take contextual action.",
+      "states": {
+        "loading": "Skeleton loading with hard lines.",
+        "empty": "N/A",
+        "error": "Standard brutalist error."
+      },
+      "layout": "Huge status badge at the top in mono font ('DISPONIBLE'). Key-value pairs stacked with thick dividers for recipient ('Hassan • ••••42'), custody holder, deadline. Sticky bottom CTA changes based on state (e.g., 'REMETTRE LE COLIS')."
+    },
+    {
+      "name": "HandoverOTP",
+      "purpose": "Secure 6-digit OTP entry to authorize parcel handover.",
+      "states": {
+        "loading": "Spinner during validation.",
+        "empty": "N/A",
+        "error": "Inline red text if OTP is incorrect."
+      },
+      "layout": "Large instructions. 6 individual square inputs with 2pt borders and massive numbers. Upon successful entry, screen flips to an 'AUTORISÉ' state (green background, black text), followed by a massive 'CONFIRMER: COLIS REMIS' sticky button."
+    },
+    {
+      "name": "ParcelsList",
+      "purpose": "Scrollable inventory of parcels with quick filtering.",
+      "states": {
+        "loading": "List skeletons.",
+        "empty": "Empty warehouse illustration (minimal) + 'AUCUN COLIS'.",
+        "error": "List load error."
+      },
+      "layout": "Horizontal scrolling row of stark rectangular filter chips ('À recevoir', 'Disponibles', 'Remis'). List below with thick 2pt black borders between each row. Rows feature mono font tracking numbers and colored status tags."
+    }
+  ],
+  "images": {
+    "empty_warehouse": {
+      "url": "https://images.unsplash.com/photo-1682256781111-9d20db9ca5a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxlbXB0eSUyMHNoZWxmJTIwbWluaW1hbCUyMGlsbHVzdHJhdGlvbnxlbnwwfHx8fDE3ODg2NDgyNTV8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Empty minimal shelf representing no parcels"
+    },
+    "parcel_isolated": {
+      "url": "https://images.unsplash.com/photo-1656543802898-41c8c46683a7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxkZWxpdmVyeSUyMGJveCUyMHBhY2thZ2UlMjBpc29sYXRlZHxlbnwwfHx8fDE3ODg2NDgyNTV8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Isolated cardboard box"
+    },
+    "warehouse_background": {
+      "url": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd2FyZWhvdXNlJTIwbG9naXN0aWNzJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODg2NDgyNTV8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Minimalist warehouse racks"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the 5 Brutalist Mobile personality. Zero border radius anywhere in the app (radius tokens = 0).",
+    "Use 2pt black borders (#000000) around cards, buttons, inputs, and list rows. This is structurally critical to the brutalist aesthetic.",
+    "Do NOT use glassmorphism, blur, or soft shadows. All backgrounds must be solid, high contrast colors.",
+    "Typography must be heavily utilitarian. Use SpaceGrotesk for large numbers/display titles and IBMPlexMono for labels, OTPs, tracking IDs, and statuses.",
+    "Keep typography weight capped at 500 max. Use font size to create hierarchy, not font weight.",
+    "All primary CTAs (like SCANNER UN COLIS) must be sticky at the bottom, edge-to-edge, with zero radius and bold high-contrast text.",
+    "Ensure French localization is applied seamlessly. Words like 'Recevoir', 'Remettre', 'Retour', 'Colis', 'Incident' should be standard.",
+    "For the OTP screen, create 6 massive distinct input squares with hard borders to accommodate fat fingers in a rush.",
+    "Color rule: No blue/purple allowed. Rely on Stark White (#FFFFFF), Black (#000000), and Industrial Orange (#FF3B00) for interactive signaling.",
+    "When applying gradient scrims over images (if using background images), strictly use vertical transparent-to-black fades to ensure white text readability."
+  ]
+}
